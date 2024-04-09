@@ -103,7 +103,7 @@ def main(train_cfg, algo_cfg, debug=False, root_dir = "", mode = 'train', checkp
         })
 
     # Initialize the trainer with the configured options
-    trainer = pl.Trainer(**trainer_options)
+    trainer = pl.Trainer(accelerator='gpu', devices=1)
 
     if mode == 'train':
         trainer.fit(model=model, datamodule=datamodule)
