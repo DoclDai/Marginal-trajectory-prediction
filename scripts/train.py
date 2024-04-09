@@ -89,7 +89,8 @@ def main(train_cfg, algo_cfg, debug=False, root_dir = "", mode = 'train', checkp
         # All callbacks
         "callbacks": train_callbacks,
         # Number of gpus. Not support multi-gpu training.
-        "gpus": 1,
+        "accelerator": 'cpu',
+        "devices": 1,
     }
 
     # Add debug-specific options
