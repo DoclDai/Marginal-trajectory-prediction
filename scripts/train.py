@@ -89,7 +89,7 @@ def main(train_cfg, algo_cfg, debug=False, root_dir = "", mode = 'train', checkp
         # All callbacks
         "callbacks": train_callbacks,
         # Number of gpus. Not support multi-gpu training.
-        "accelerator": 'cpu',
+        "accelerator": 'gpu',
         "devices": 1,
     }
 
@@ -103,7 +103,7 @@ def main(train_cfg, algo_cfg, debug=False, root_dir = "", mode = 'train', checkp
         })
 
     # Initialize the trainer with the configured options
-    trainer = pl.Trainer(accelerator='gpu', devices=1)
+    trainer = pl.Trainer(accelerator='gpu', devices=1, max_epochs=7)
 
     if mode == 'train':
         trainer.fit(model=model, datamodule=datamodule)
