@@ -78,7 +78,7 @@ class BehaviorCloningConfig(AlgoConfig):
         # Exploration:
         # Adjust the model structure
         
-        self.model_architecture = "mobilenet_v2" #mobilenet_v2 resnet18
+        self.model_architecture = "resnet18" #mobilenet_v2 resnet18
         self.map_feature_dim = 256
         self.history_num_frames = 9
         self.history_num_frames_ego = 9
