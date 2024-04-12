@@ -34,19 +34,19 @@ class TrainConfig(Dict):
         ## training config
         self.training.batch_size = 32
         self.training.num_steps = 100000
-        self.training.num_data_workers = 8
+        self.training.num_data_workers = 16
 
         ## validation config
         self.validation.enabled = True
         self.validation.batch_size = 32
-        self.validation.num_data_workers = 8
+        self.validation.num_data_workers = 16
         self.validation.every_n_steps = 1000
         self.validation.num_steps_per_epoch = 100
         
         ## test config
         self.test.enabled = True
         self.test.batch_size = 32
-        self.test.num_data_workers = 8
+        self.test.num_data_workers = 16
         self.test.every_n_steps = 1000
         self.test.num_steps_per_epoch = 100
         
@@ -78,15 +78,15 @@ class BehaviorCloningConfig(AlgoConfig):
         # Exploration:
         # Adjust the model structure
         
-        self.model_architecture = "resnet18" #mobilenet_v2 resnet18
+        self.model_architecture = "resnext50_32x4d" #mobilenet_v2 resnet18
         self.map_feature_dim = 256
-        self.history_num_frames = 9
-        self.history_num_frames_ego = 9
-        self.history_num_frames_agents = 9
-        self.future_num_frames = 30
+        self.history_num_frames = 12
+        self.history_num_frames_ego = 12
+        self.history_num_frames_agents = 12
+        self.future_num_frames = 25
         self.step_time = 0.1
         self.render_ego_history = False
-        self.decoder.layer_dims = () # you can make the decoder more complex
+        self.decoder.layer_dims = (128, 64) # you can make the decoder more complex
         self.decoder.state_as_input = True
         
    
