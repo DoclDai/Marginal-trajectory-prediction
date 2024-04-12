@@ -221,22 +221,27 @@ class BehaviorCloning(pl.LightningModule):
         # identify other attributes
         agent_type = ['car']*pre_h
         track_to_predict = [1]*pre_h
+
+        if self.target_map == None:
+            with open('scripts/target_map.pkl', 'rb') as f:
+                self.target_map = pickle.load(f)
         
         for i in range(batch_size):
             scene_name = csv_name[i][:-8]
             target_id = np.array([case_id[i*pre_h,0], track_id[i*pre_h,0]])
-            df = pd.DataFrame(columns=column_names)
-            df['case_id'] = case_id[i*pre_h:(i+1)*pre_h,0]
-            df['track_id'] = track_id[i*pre_h:(i+1)*pre_h,0]
-            df['x1'] = predict_pos_np[i*pre_h:(i+1)*pre_h,0]
-            df['y1'] = predict_pos_np[i*pre_h:(i+1)*pre_h,1]
-            df['frame_id'] = frame_id
-            df['timestamp_ms'] = timestamp_ms
-            df['agent_type'] = agent_type
-            df['track_to_predict'] = track_to_predict
+            if np.any(np.all(self.target_map[scene_name] == target_id, axis=1)):
+                df = pd.DataFrame(columns=column_names)
+                df['case_id'] = case_id[i*pre_h:(i+1)*pre_h,0]
+                df['track_id'] = track_id[i*pre_h:(i+1)*pre_h,0]
+                df['x1'] = predict_pos_np[i*pre_h:(i+1)*pre_h,0]
+                df['y1'] = predict_pos_np[i*pre_h:(i+1)*pre_h,1]
+                df['frame_id'] = frame_id
+                df['timestamp_ms'] = timestamp_ms
+                df['agent_type'] = agent_type
+                df['track_to_predict'] = track_to_predict
             
-            self.sub_df.append(df)
-            self.sub_csv_name.append(csv_name[i])
+                self.sub_df.append(df)
+                self.sub_csv_name.append(csv_name[i])
         
         return None
     
