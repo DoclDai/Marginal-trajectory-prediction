@@ -34,19 +34,19 @@ class TrainConfig(Dict):
         ## training config
         self.training.batch_size = 32
         self.training.num_steps = 100000
-        self.training.num_data_workers = 8
+        self.training.num_data_workers = 16
 
         ## validation config
         self.validation.enabled = True
         self.validation.batch_size = 32
-        self.validation.num_data_workers = 8
+        self.validation.num_data_workers = 16
         self.validation.every_n_steps = 1000
         self.validation.num_steps_per_epoch = 100
         
         ## test config
         self.test.enabled = True
         self.test.batch_size = 32
-        self.test.num_data_workers = 8
+        self.test.num_data_workers = 16
         self.test.every_n_steps = 1000
         self.test.num_steps_per_epoch = 100
         
