@@ -98,11 +98,3 @@ For example,
 python scripts/train.py --dataset_path /home/yixiao/yixiao/me292/prediction/interaction/INTERACTION-Dataset-DR-single-v1_2  --output_dir experiments/base_model --checkpoint experiments/base_model_1/checkpoints/iter35000.ckpt --mode test
 ```
 
-### Possible approach to improve the base model
-- Multimodal decoder: line ~30, me292b/models/algos.py, we recommend to look at MultiModal_trajectory_loss in me292b/utils/loss_utils.py
-- Attention-based network structure: line ~50, me292b/models/algos.py
-- Training configuration: line ~30, me292b/configs/base.py
-- Network structure: line ~70, me292b/configs/base.py
-- Whether to use dynamic layer: line ~90, me292b/configs/base.py
-- Training loss: line ~330, me292b/models/base_model.py
-- Dataloader parameters: line ~70, me292b/data/trajdata_datamodules.py
