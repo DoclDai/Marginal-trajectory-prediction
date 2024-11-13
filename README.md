@@ -11,7 +11,7 @@ This repo builds upon foundational work by NVlabs, specifically leveraging the f
 
 
 ### Download the dataset
-You can download the dataset from the [Interaction dataset](https://challenge.interaction-dataset.com) or from [Google Drive](https://drive.google.com/file/d/1jeTI1BSukwdirmYN9nLm9691b0mx3TqJ/view?usp=share_link)
+Download the dataset from the [Interaction dataset](https://challenge.interaction-dataset.com) or from [Google Drive](https://drive.google.com/file/d/1jeTI1BSukwdirmYN9nLm9691b0mx3TqJ/view?usp=share_link)
 
 ### Environment Setup
 
